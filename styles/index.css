@@ -1,0 +1,73 @@
+:root{
+    background-color: #FFE4C4;
+    --twSpeed: 4s;
+    --helloChars: 6;
+    --welcomeChars: 29;
+    --comeinChars: 25;
+}
+
+body{
+    margin:0;
+    display: grid;
+    place-content: center;
+    text-align:left;
+    min-height:100vh;
+}
+
+.welcome-message{
+    font-family: "andale mono",courier;
+    font-size: clamp(1rem,2.5vw,2rem);
+}
+
+.enter-home{
+    border-width: 0;
+    background-color: #FFE4C4;
+}
+
+.hello{
+    position: relative;
+}
+
+.hello::before,
+.hello::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.hello::before{
+    background-color: #FFE4C4;
+    animation: typewriter 
+        var(--twSpeed) 
+        steps(var(--helloChars)) 
+        1s forwards;
+}
+
+.hello::after{
+    width: 0.125em;
+    background: black;
+    animation: typewriter var(--twSpeed) 
+        steps(var(--helloChars)) 
+        1s forwards, blink 750ms steps(var(--helloChars))
+        forwards infinite;
+}
+
+@keyframes typewriter{
+    to{
+        left:100%;
+    }
+}
+
+@keyframes blink{
+    to {
+        background: transparent;
+    }
+}
+
+img{
+    width: 20%;
+    height: auto;
+}
